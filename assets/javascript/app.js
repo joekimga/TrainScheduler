@@ -15,3 +15,26 @@ firebase.initializeApp(config);
 var database = firebase.database();
 
 //button for adding train name
+$("#add-train-btn").on("click", function(event) {
+  event.preventDefault();
+
+
+  //user input
+  var trainName = $("$train-name-input").val().trim();
+  var trainDestination = $("#Destination-input").val().trim(); 
+  var trainTime = $("#Time-input").val().trim();
+  var trainFrequency = $("#Frequency-input").val().trim();
+
+  //local "temp"object for new train data
+  var newTrain = {
+    name: trainName,
+    destination: trainDestination,
+    start: trainTime,
+    frequency: trainFrequency,
+  };
+
+  //uploads train data to database
+  database.ref().push(newTrain);
+
+  //logs everythign to console
+  
