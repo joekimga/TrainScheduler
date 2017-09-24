@@ -52,3 +52,34 @@ $("#add-train-btn").on("click", function(event) {
   $("#frequency-input").val("");
 });
 
+//firebase event to add train to database and a row in html
+database.ref().on("child_added", function(childSnapshot, prevChildKey) {
+
+  console.log(childSnapshot.val());
+
+  //store everything into a varibale
+  var trainName = childSnapshot.val().name;
+  var trainDestination = childSnapshot.val().destination;
+  var trainTime = childSnapshot.val().time;
+  var trainFrequency = childSnapshot.val().frequency;
+
+  //train info
+  console.log(trainName);
+  console.log(trainDestination);
+  console.log(trainTime);
+  console.log(trainFrequency);
+
+  //prettify the train time
+  var trainTimePretty = moment.unix(trainTime).format("HH:mm");
+
+  
+
+
+
+
+
+
+
+
+
+})
