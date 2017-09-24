@@ -22,7 +22,7 @@ $("#add-train-btn").on("click", function(event) {
   //user input
   var trainName = $("$train-name-input").val().trim();
   var trainDestination = $("#Destination-input").val().trim(); 
-  var trainTime = $("#Time-input").val().trim();
+  var trainTime = moment($("#Time-input").val().trim(); "HH:mm".format("X");
   var trainFrequency = $("#Frequency-input").val().trim();
 
   //local "temp"object for new train data
@@ -37,4 +37,16 @@ $("#add-train-btn").on("click", function(event) {
   database.ref().push(newTrain);
 
   //logs everythign to console
-  
+  console.log(newTrain.name);
+  console.log(newTrain.destination);  
+  console.log(newTrain.time);
+  console.log(newTrain.frequency);
+
+  //alert
+  alert("Train has been added to schedule")
+
+  //clears all of the input boxes
+  $("#train-name-input").val("");
+  $("#destination-input").val("");
+  $("#time-input".val("");
+  $("#frequency-input").val("");
