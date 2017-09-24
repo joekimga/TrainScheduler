@@ -7,7 +7,7 @@
   databaseURL: "https://maidenvoyage-9fa43.firebaseio.com",
   projectId: "maidenvoyage-9fa43",
   storageBucket: "maidenvoyage-9fa43.appspot.com",
-  messagingSenderId: "795370132163"
+  messagingSenderId: "795370132163",
 };
 
 firebase.initializeApp(config);
@@ -21,9 +21,9 @@ $("#add-train-btn").on("click", function(event) {
 
   //user input
   var trainName = $("$train-name-input").val().trim();
-  var trainDestination = $("#Destination-input").val().trim(); 
-  var trainTime = moment($("#Time-input").val().trim(); "HH:mm".format("X");
-  var trainFrequency = $("#Frequency-input").val().trim();
+  var trainDestination = $("#destination-input").val().trim(); 
+  var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
+  var trainFrequency = $("#frequency-input").val().trim();
 
   //local "temp"object for new train data
   var newTrain = {
@@ -48,5 +48,7 @@ $("#add-train-btn").on("click", function(event) {
   //clears all of the input boxes
   $("#train-name-input").val("");
   $("#destination-input").val("");
-  $("#time-input".val("");
+  $("#time-input").val("");
   $("#frequency-input").val("");
+});
+
