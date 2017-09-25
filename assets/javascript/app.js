@@ -80,7 +80,13 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
 
   //calculate the total amount of trips (frequency)
   var trainTotal = trainHours * trainFrequency;
-  console.log(trainTotal)
+  console.log(trainTotal);
+
+  //add each train's data into table
+  $("#train-table > tbody").append("<tr><td>" + trainName + "</tr><td>" + trainDestination + "</tr><td>" + 
+    trainTimePretty + "</td><td>" + trainHours + "</td><td>" + 
+    trainFrequency + "</td><td>" + trainTotal + "</td><tr>");
+
 
 
 
