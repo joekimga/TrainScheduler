@@ -69,8 +69,18 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trainTime);
   console.log(trainFrequency);
 
-  //prettify the train time
+  //prettify the first train time
   var trainTimePretty = moment.unix(trainTime).format("HH:mm");
+
+  
+  //calculate the hours worked with math
+  //calculate the hours worked
+  var trainHours = moment().diff(moment.unix(trainTime, "X"), "hours");
+  console.log(trainHours);
+
+  //calculate the total amout of trips (frequency)
+  var trainTotal = trainHours * trainFrequency;
+  console.log(trainTotal)
 
   
 
