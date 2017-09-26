@@ -1,4 +1,4 @@
-
+$(document).ready(function () {
 
 // Initialize Firebase
  var config = {
@@ -20,9 +20,9 @@ $("#add-train-btn").on("click", function(event) {
 
 
   //user input
-  var trainName = $("$train-name-input").val().trim();
+  var trainName = $("#train-name-input").val().trim();
   var trainDestination = $("#destination-input").val().trim(); 
-  var trainTime = moment($("#time-input").val().trim(), "HH:mm").format("X");
+  var trainTime = $("#time-input").val().trim();
   var trainFrequency = $("#frequency-input").val().trim();
 
   //local "temp"object for new train data
@@ -60,7 +60,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   //store everything into a varibale
   var trainName = childSnapshot.val().name;
   var trainDestination = childSnapshot.val().destination;
-  var trainTime = childSnapshot.val().time;
+  var trainTime = childSnapshot.val().start;
   var trainFrequency = childSnapshot.val().frequency;
 
   //train info
@@ -76,6 +76,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   //calculate the hours worked with math
   //calculate the hours worked
   var trainHours = moment().diff(moment.unix(trainTime, "X"), "hours");
+  console.log(moment);
   console.log(trainHours);
 
   //calculate the total amount of trips (frequency)
@@ -88,14 +89,5 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
     trainFrequency + "</td><td>" + trainTotal + "</td><tr>");
 
 
-
-
-
-
-
-
-
-
-
-
-})
+});
+});
