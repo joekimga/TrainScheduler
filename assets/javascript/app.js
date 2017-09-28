@@ -84,7 +84,7 @@ database.ref().on("child_added", function(childSnapshot, prevChildKey) {
   console.log(trainTotal);
 
   //add each train's data into table
-  $("#train-table > tbody").append("<tr><td>" + trainName + "</tr><td>" + trainDestination + "</tr><td>" + 
+  $("tbody").append("<tr><td>" + trainName + "</tr><td>" + trainDestination + "</tr><td>" + 
     trainTimePretty + "</td><td>" + trainHours + "</td><td>" + 
     trainFrequency + "</td><td>" + trainTotal + "</td><tr>");
 
